@@ -11,7 +11,11 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaHeight = MediaQuery.sizeOf(context).height;
     final mediaWidth = MediaQuery.sizeOf(context).width;
-    final loginContainerheight = kIsWeb ? mediaWidth / 2.8 : mediaHeight / 2.8;
+    final loginContainerheight = mediaWidth > 600
+        ? mediaWidth / 2.8
+        : kIsWeb && mediaWidth < 600
+            ? mediaWidth / 2.8
+            : mediaHeight / 2.8;
 
     return Scaffold(
       backgroundColor: ColorConstants.baseColor,
@@ -31,7 +35,7 @@ class LoginPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   SizedBox(
-                    height: loginContainerheight * .1,
+                    height: loginContainerheight * .07,
                   ),
                   Text(
                     "Log in",
@@ -112,9 +116,6 @@ class LoginPage extends StatelessWidget {
                         )
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    height: loginContainerheight * .04,
                   ),
                 ],
               ),
