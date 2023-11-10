@@ -53,7 +53,7 @@ class ProfilesGridview extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 )
               : GridView.builder(
-                  itemCount: 10,
+                  itemCount: provider.randomUserData?.results?.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount:
                         MediaQuery.of(context).size.width > 600 ? 2 : 1,
