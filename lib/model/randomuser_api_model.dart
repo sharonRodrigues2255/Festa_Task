@@ -162,7 +162,6 @@ class Location {
   String? city;
   String? state;
   String? country;
-  int? postcode;
   Coordinates? coordinates;
   Timezone? timezone;
 
@@ -171,7 +170,6 @@ class Location {
     this.city,
     this.state,
     this.country,
-    this.postcode,
     this.coordinates,
     this.timezone,
   });
@@ -181,7 +179,6 @@ class Location {
         city: json["city"],
         state: json["state"],
         country: json["country"],
-        postcode: json["postcode"],
         coordinates: json["coordinates"] == null
             ? null
             : Coordinates.fromJson(json["coordinates"]),
@@ -195,7 +192,6 @@ class Location {
         "city": city,
         "state": state,
         "country": country,
-        "postcode": postcode,
         "coordinates": coordinates?.toJson(),
         "timezone": timezone?.toJson(),
       };
